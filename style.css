@@ -1,0 +1,282 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('IMAGENES/img_fondo2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #ffffff; /* Blanco para el texto */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Fondo degradado */
+    color: #ffffff; /* Blanco para el texto */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    animation: fadeIn 2s; /* Animación de entrada */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right img {
+    max-height: 70px;
+    margin-right: 20px;
+}
+
+.header-right nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right nav a {
+    color: #00ffff; /* Cian para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.header-right nav a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header-center h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #ff69b4; /* Rosa fuerte para el texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+    animation: slideIn 2s; /* Animación de entrada */
+    animation: blink 1s infinite; /* Efecto de parpadeo */
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(44, 112, 163, 0.8); /* Fondo semitransparente */
+    /*background-image: url('IMAGENES/img_fondo2.jpg'); /* Imagen de fondo para la marca de agua */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.hero img {
+    max-width: 45%;
+    border-radius: 8px;
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.hero img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.hero .text {
+    max-width: 45%;
+}
+
+.text h1 {
+    color: #00ffff; /* Cian para el encabezado */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+    animation: fadeIn 2s; /* Animación de entrada */
+}
+
+.text p {
+    color: #ffffff; /* Blanco para el texto */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+    animation: fadeIn 2s; /* Animación de entrada */
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente negro para mejorar la legibilidad */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    color: #ffffff; /* Blanco para el texto */
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Efecto de hover */
+}
+
+.icon img {
+    max-width: 50px;
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.icon img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el ratón */
+}
+
+.icon p {
+    color: #ff69b4; /* Rosa fuerte para el texto */
+    font-weight: bold;
+    transition: color 0.3s; /* Transición para el efecto de hover */
+}
+
+.icon p:hover {
+    color: #00ff00; /* Verde para el texto al pasar el ratón */
+}
+
+footer {
+    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Fondo degradado */
+    text-align: center;
+    padding: 0px 0;
+    border-radius: 10px;
+    color: #ffffff; /* Blanco para el texto */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente negro para mejorar la legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Centrar el contenido */
+    color: #ffffff; /* Blanco para el texto */
+}
+
+a {
+    color: #00ffff; /* Cian para los enlaces */
+}
+
+a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+}
+
+.float-image {
+    width: 200px; /* Ajustar el tamaño de la imagen */
+    margin: 10px auto; /* Centrar la imagen */
+    display: block;
+}
+
+.link-item {
+    margin-bottom: 20px;
+}
+
+#back-to-top, #theme-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000080; /* Azul oscuro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición para el efecto de hover */
+}
+
+#back-to-top:hover, #theme-toggle:hover {
+    background-color: #ff4500; /* Naranja */
+}
+
+.faq-news {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente negro para mejorar la legibilidad */
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.faq, .news {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.faq h2, .news h2 {
+    color: #00ffff; /* Cian para los encabezados */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.faq p, .news ul {
+    color: #ffffff; /* Blanco para el texto */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.news ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news ul li {
+    margin: 10px 0;
+}
+
+.news ul li a {
+    color: #00ffff; /* Cian para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s; /* Transición para el efecto de hover */
+}
+
+.news ul li a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+}
+
+.logos {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente negro para mejorar la legibilidad */
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.logo {
+    flex: 1;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100px; /* Ajustar el tamaño de los logos */
+    height: auto;
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}

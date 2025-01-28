@@ -1,0 +1,332 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('IMAGENES/img_fondo2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f4f4f4; /* Color de texto principal */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-right img {
+    height: 60px;
+}
+
+nav a {
+    color: #00ffff; /* Color de texto de navegación */
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff4500; /* Color de texto de navegación al pasar el ratón */
+}
+
+.hero {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero .text h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #00ffff; /* Color de texto del título */
+}
+
+.hero .text p {
+    font-size: 1.2em;
+    color: #feffff; /* Color de texto del párrafo */
+}
+
+.container {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #f4f4f4; /* Color de texto de contenedores */
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.icon {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+.icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.icon img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el ratón */
+}
+
+.icon p {
+    color: #ff69b4; /* Rosa fuerte para el texto */
+    font-weight: bold;
+    transition: color 0.3s; /* Transición para el efecto de hover */
+}
+
+.icon p:hover {
+    color: #00ff00; /* Verde para el texto al pasar el ratón */
+}
+
+.faq-news {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.faq, .news {
+    width: 48%;
+}
+
+.faq h2, .news h2 {
+    color: #00ffff; /* Color de texto del título */
+}
+
+.logos {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header-right nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right nav a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header-center h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #ff69b4; /* Rosa fuerte para el texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+    animation: slideIn 2s; /* Animación de entrada */
+    animation: blink 1s infinite; /* Efecto de parpadeo */
+}
+
+.hero img {
+    max-width: 45%;
+    border-radius: 8px;
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.hero img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.hero .text {
+    max-width: 45%;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.icon {
+    text-align: center;
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Efecto de hover */
+}
+
+.icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.icon img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el ratón */
+}
+
+.icon p {
+    color: #ff69b4; /* Rosa fuerte para el texto */
+    font-weight: bold;
+    transition: color 0.3s; /* Transición para el efecto de hover */
+}
+
+.icon p:hover {
+    color: #00ff00; /* Verde para el texto al pasar el ratón */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.container {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #f4f4f4; /* Color de texto de contenedores */
+}
+
+a {
+    color: #00ffff; /* Cian para los enlaces */
+}
+
+a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+}
+
+.float-image {
+    width: 200px; /* Ajustar el tamaño de la imagen */
+    margin: 10px auto; /* Centrar la imagen */
+    display: block;
+}
+
+.link-item {
+    margin-bottom: 20px;
+}
+
+#back-to-top, #theme-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000080; /* Azul oscuro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición para el efecto de hover */
+}
+
+#back-to-top:hover, #theme-toggle:hover {
+    background-color: #ff4500; /* Naranja */
+}
+
+.faq-news {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.faq, .news {
+    width: 48%;
+}
+
+.faq h2, .news h2 {
+    color: #ffcc00; /* Cian para los encabezados */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.faq p, .news ul {
+    color: #ffffff; /* Blanco para el texto */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.news ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news ul li {
+    margin: 10px 0;
+}
+
+.news ul li a {
+    color: #00ffff; /* Cian para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s; /* Transición para el efecto de hover */
+}
+
+.news ul li a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+}
+
+.logos {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.logo {
+    flex: 1;
+    text-align: center;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}

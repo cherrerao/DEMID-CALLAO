@@ -3,188 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización de Datos</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', Arial, sans-serif; /* Define la fuente principal del cuerpo */
-            margin: 0; /* Elimina el margen predeterminado */
-            padding: 0; /* Elimina el relleno predeterminado */
-            background-image: url('img_fondo.jpg'); /* Establece una imagen de fondo */
-            background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-            background-position: center; /* Centra la imagen de fondo */
-            background-attachment: fixed; /* Fija la imagen para que no se mueva al hacer scroll */
-            color: #333; /* Define el color del texto */
-        }
-        .container {
-            max-width: 1200px; /* Define el ancho máximo del contenedor */
-            margin: 40px auto; /* Centra el contenedor horizontalmente y agrega un margen superior/inferior */
-            padding: 20px; /* Agrega espacio interno dentro del contenedor */
-            background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del contenedor */
-        }
-        h2 {
-            text-align: center; /* Centra el texto del título */
-            color: #4CAF50; /* Define el color del texto del título */
-            margin-bottom: 20px; /* Agrega un margen inferior */
-        }
-        .search-bar {
-            margin-bottom: 20px; /* Agrega un margen inferior */
-            text-align: center; /* Centra el contenido de la barra de búsqueda */
-        }
-        .search-bar input {
-            width: 80%; /* Define el ancho del campo de búsqueda */
-            padding: 10px; /* Agrega espacio interno al campo */
-            font-size: 16px; /* Define el tamaño de la fuente */
-            border: 1px solid #ddd; /* Agrega un borde gris claro */
-            border-radius: 5px; /* Bordes redondeados */
-        }
-        .download-link {
-            text-align: center; /* Centra el enlace de descarga */
-            margin-bottom: 20px; /* Agrega un margen inferior */
-        }
-        .download-link a {
-            text-decoration: none; /* Elimina el subrayado del enlace */
-            color: #fff; /* Define el color del texto del enlace */
-            background-color: #4CAF50; /* Define el color de fondo del enlace */
-            padding: 10px 20px; /* Agrega espacio interno al enlace */
-            border-radius: 5px; /* Bordes redondeados */
-            font-size: 16px; /* Define el tamaño de la fuente */
-        }
-        table {
-            width: 100%; /* Hace que la tabla ocupe todo el ancho disponible */
-            border-collapse: collapse; /* Elimina los espacios entre bordes de las celdas */
-            border-radius: 10px; /* Bordes redondeados */
-            overflow: hidden; /* Oculta cualquier contenido que sobresalga */
-            background: #fff; /* Fondo blanco para la tabla */
-        }
-        th, td {
-            border: 1px solid #ddd; /* Agrega un borde gris claro a las celdas */
-            padding: 12px; /* Agrega espacio interno a las celdas */
-            text-align: left; /* Alinea el texto a la izquierda */
-        }
-        th {
-            background-color: #4CAF50; /* Fondo verde para los encabezados */
-            color: white; /* Texto blanco para los encabezados */
-            font-weight: 500; /* Define el grosor del texto */
-        }
-        th.center {
-            text-align: center; /* Centra el texto de los encabezados con la clase "center" */
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2; /* Fondo gris claro para las filas pares */
-        }
-        tr:hover {
-            background-color: #eafaf1; /* Fondo verde claro al pasar el cursor sobre una fila */
-        }
-        td {
-            font-size: 14px; /* Define el tamaño de la fuente para las celdas */
-        }
-
-        .center {
-             text-align: center; /* Centra el texto horizontalmente */
-             vertical-align: middle; /* Centra el texto verticalmente */
-        }
-        @media (max-width: 768px) {
-            table {
-                font-size: 12px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
-            }
-            th, td {
-                padding: 8px; /* Reduce el espacio interno en pantallas pequeñas */
-            }
-        }
-    </style>
+    <title>SISMED Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h2>SALIDA POR SIS O INTERVENCIÓN SANITARIA</h2>
-        <div class="download-link">
-            <a href="DIGITACION.xlsx" download>Descargar Excel</a>
-        </div>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
-        </div>
-        <table id="data-table">
-            <thead>
-                <tr id="table-header"></tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-        </table>
+
+<header>
+    <div class="header-right">
+        <img src="IMAGENES/SISMED.png" alt="SISMED Logo">
+        <nav>
+            <a href="#nosotros" id="nosotros-link">Nosotros</a>
+           <!---- <a href="#procesos-clave">Procesos Clave</a> -->
+            <a href="https://drive.google.com/drive/u/0/folders/1JrpQUfleNj7cBqK4qwfgTtBDn5F8z8ic" id="manuales-sismed-link" target="_blank">Manuales SISMED</a>
+
+            <a href="#contacto">Contacto</a>
+        </nav>
     </div>
+    <div class="header-center">
+        <h2>DIRECCIÓN DE MEDICAMENTOS INSUMOS Y DROGAS - DEMID</h2>
+    </div>
+</header>
 
-    <script>
-        function cargarExcel() {
-            fetch('DIGITACION.xlsx') // Descarga el archivo Excel desde el servidor
-                .then(response => response.blob()) // Convierte la respuesta en un objeto Blob
-                .then(blob => blob.arrayBuffer()) // Convierte el Blob en un ArrayBuffer
-                .then(data => {
-                    let workbook = XLSX.read(data, { type: 'array' }); // Lee el archivo Excel
-                    let sheet = workbook.Sheets[workbook.SheetNames[0]]; // Obtiene la primera hoja del archivo
-                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Convierte la hoja en un arreglo de arreglos
-                    
-                    let tableHeader = document.getElementById("table-header"); // Obtiene el encabezado de la tabla
-                    let tableBody = document.getElementById("table-body"); // Obtiene el cuerpo de la tabla
-                    
-                    tableHeader.innerHTML = ""; // Limpia el contenido previo del encabezado
-                    tableBody.innerHTML = ""; // Limpia el contenido previo del cuerpo
-                    
-                    // Crear encabezados de la tabla
-                    jsonData[0].forEach(header => {
-                        let th = document.createElement("th"); // Crea un elemento <th> para cada encabezado
-                        th.textContent = header; // Asigna el texto del encabezado
+<section class="hero">
+    <div class="text">
+        <h1>SISMED - Sistema Integrado</h1>
+        <p>Gestión de productos farmacéuticos y dispositivos médicos al alcance de todos.</p>
+    </div>
+    <div class="carousel">
+        <img id="carousel-image" src="IMAGENES/IMAGEN_2.jpg" alt="Hero Image">
+    </div>
+</section>
 
-                        if (header.toLowerCase() !== "descripcion") { // Si no es "Descripción", centra el texto
-                            th.classList.add("center");
-                        }
+<section id="nosotros" class="container">
+    <h2>Nosotros</h2>
+    <p>La Dirección Ejecutiva de Medicamentos, Insumos y Drogas (DEMID) es una dependencia de DIRESA Callao encargada de regular y supervisar el uso de medicamentos, insumos y drogas en la región. Su objetivo es garantizar que estos productos sean:</p>
+    <ul>
+        <li>Seguros</li>
+        <li>Eficaces</li>
+        <li>De calidad</li>
+    </ul>
+    <h3>Funciones principales de DEMID</h3>
+    <ol>
+        <li>Inspección de establecimientos farmacéuticos.</li>
+        <li>Autorización de boticas y farmacias.</li>
+        <li>Vigilancia sanitaria de productos farmacéuticos.</li>
+    </ol>
+    <h3>Acciones destacadas de DEMID</h3>
+    <ul>
+        <li>Inspecciones inopinadas: DEMID interviene establecimientos informales que no cumplen con las normativas sanitarias vigentes.</li>
+        <li>Gestión y regulación: Proporciona formatos y guías para la correcta administración de boticas y farmacias, asegurando el cumplimiento de las regulaciones establecidas.</li>
+    </ul>
+    <p>Para más información, puedes visitar la <a href="https://www.diresacallao.gob.pe/" target="_blank">página oficial de DIRESA Callao</a>.</p>
+</section>
 
-                        tableHeader.appendChild(th); // Agrega el encabezado a la tabla
-                    });
-                    
-                    // Crear filas de la tabla
-                    jsonData.slice(1).forEach(row => { // Itera sobre las filas de datos (excluyendo los encabezados)
-                        let tr = document.createElement("tr"); // Crea una fila <tr>
-                        row.forEach((cell, index) => {
-                            let td = document.createElement("td"); // Crea una celda <td>
-                            td.textContent = cell; // Asigna el contenido de la celda
+<section id="otros-vinculos" class="container">
+    <h2>Otros Vínculos</h2>
+    <p><a href="https://drive.google.com/drive/u/0/folders/1tq0Hjh8RuHD_ATv-HDn5mcwxwBupp4nf" target="_blank">Actualización Catálogo y Precios</a></p>
+</section>
 
-                            // Centrar todas las celdas excepto las de la columna "Descripción"
-                            if (jsonData[0][index].toLowerCase() !== "descripcion") {
-                                td.classList.add("center");
-                            }
+<div id="mensaje-actualizacion" class="hidden">
+    📢 Los archivos han sido actualizados recientemente.
+</div>
 
-                            tr.appendChild(td); // Agrega la celda a la fila
-                        });
-                        tableBody.appendChild(tr); // Agrega la fila al cuerpo de la tabla
-                    });
-                })
-                .catch(error => console.error("Error al cargar el archivo Excel:", error)); // Maneja errores
-        }
+<section class="icons">
+    <div class="icon">
+        <a href="https://cherrerao.github.io/Disponibilidad-Callao/" target="_blank">
+            <img src="IMAGENES/img_1.png" alt="Convenios de Gestion">
+        </a>
+        <p>Disponibilidad Convenios</p>
+    </div>
+    <div class="icon">
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiNDkyODYxNDEtYzFhZS00ZjQ5LWI3MmQtZGExNjhiYTFkYWFjIiwidCI6IjFiN2FmMjNmLTEzMzAtNGM4Yi1hNDA2LTViMjZiNmRjZjkxYyIsImMiOjR9" target="_blank">
+            <img src="IMAGENES/img_2.png" alt="Disponibilidad Establecimientos">
+        </a>
+        <p>Disponibilidad Establecimientos de Salud</p>
+    </div>
+    <div class="icon">
+        <a href="https://cherrerao.github.io/TIPO_CONSUMO/" target="_blank">
+            <img src="IMAGENES/img_3.png" alt="Digitación">
+        </a>
+        <p>Digitación</p>
+    </div>
+</section>
 
-        window.onload = cargarExcel; // Llama a la función cargarExcel cuando la página se carga
-    </script>
-    <script>
-        function filtrarTabla() {
-            const input = document.getElementById("search-input"); // Obtiene el campo de búsqueda
-            const filter = input.value.toLowerCase(); // Convierte el texto ingresado a minúsculas
-            const tableBody = document.getElementById("table-body"); // Obtiene el cuerpo de la tabla
-            const rows = tableBody.getElementsByTagName("tr"); // Obtiene todas las filas de la tabla
+<section class="faq-news">
+    <div class="faq">
+        <h2>¿Qué es el SISMED?</h2>
+        <p>El SISMED es el Sistema Integrado de Suministro de Medicamentos e Insumos Médicos, encargado de la gestión y distribución de productos farmacéuticos y dispositivos médicos en el sector salud.</p>
+    </div>
+    <!--<div class="news">
+        <h2>Noticias</h2>
+        <ul id="news-list">
+             Las noticias se cargarán dinámicamente aquí 
+        </ul>
+    </div> -->
+</section>
 
-            for (let i = 0; i < rows.length; i++) { // Itera sobre cada fila
-                const cells = rows[i].getElementsByTagName("td"); // Obtiene las celdas de la fila
-                let match = false;
+<section id="contacto" class="container">
+    <h2>Contacto</h2>
+    <p>ICI virtual al correo:</p>
+    <p><a href="mailto:demidcallao@gmail.com">demidcallao@gmail.com</a></p>
+    <p>Cambios de fecha y lote mano a mano al correo:</p>
+    <p><a href="mailto:diresacallaosismed008@gmail.com">diresacallaosismed008@gmail.com</a></p>
+</section>
 
-                for (let j = 0; j < cells.length; j++) { // Itera sobre cada celda
-                    if (cells[j].textContent.toLowerCase().includes(filter)) { // Verifica si el texto coincide con el filtro
-                        match = true;
-                        break;
-                    }
-                }
+<section class="logos">
+    <div class="logo">
+        <a href="https://www.minsa.gob.pe/" target="_blank">
+            <img src="IMAGENES/Minsa.png" alt="Minsa Logo">
+        </a>
+    </div>
+    <div class="logo">
+        <a href="https://www.sis.gob.pe/" target="_blank">
+            <img src="IMAGENES/SIS.png" alt="SIS Logo">
+        </a>
+    </div>
+    <div class="logo">
+        <a href="https://www.diresacallao.gob.pe/" target="_blank">
+            <img src="IMAGENES/diresa.png" alt="DIRESA Callao Logo">
+        </a>
+    </div>
+</section>
 
-                rows[i].style.display = match ? "" : "none"; // Muestra u oculta la fila según el resultado
-            }
-        }
-    </script>
+<footer>
+    <p>© 2025 SISMED - Todos los derechos reservados.</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

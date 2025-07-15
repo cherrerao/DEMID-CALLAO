@@ -1,20 +1,40 @@
 // Aquí puedes agregar cualquier script JavaScript necesario
-document.addEventListener('DOMContentLoaded', function() {
-    // Carrusel de imágenes
-    const images = [
-        'IMAGENES/IMAGEN_1.jpg',
-        'IMAGENES/IMAGEN_2.jpg', // Añade más rutas de imágenes aquí
-        'IMAGENES/IMAGEN_3.jpg'
-    ];
-    let currentIndex = 0;
-    const carouselImage = document.getElementById('carousel-image');
 
-    function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        carouselImage.src = images[currentIndex];
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Carrusel hero slider moderno ---
+    const sliderImgs = document.querySelectorAll('.hero-slider-carrusel .slider-img');
+    const leftBtn = document.querySelector('.slider-arrow-left');
+    const rightBtn = document.querySelector('.slider-arrow-right');
+    let sliderIndex = 1; // la imagen central
+
+    function updateSlider() {
+      sliderImgs.forEach((img, i) => {
+        img.classList.remove('slider-img-left', 'slider-img-center', 'slider-img-right');
+      });
+      const total = sliderImgs.length;
+      const left = (sliderIndex - 1 + total) % total;
+      const center = sliderIndex;
+      const right = (sliderIndex + 1) % total;
+      sliderImgs[left].classList.add('slider-img-left');
+      sliderImgs[center].classList.add('slider-img-center');
+      sliderImgs[right].classList.add('slider-img-right');
     }
 
-    setInterval(changeImage, 3000); // Cambia la imagen cada 3 segundos
+    leftBtn.addEventListener('click', () => {
+      sliderIndex = (sliderIndex - 1 + sliderImgs.length) % sliderImgs.length;
+      updateSlider();
+    });
+    rightBtn.addEventListener('click', () => {
+      sliderIndex = (sliderIndex + 1) % sliderImgs.length;
+      updateSlider();
+    });
+
+    setInterval(() => {
+      sliderIndex = (sliderIndex + 1) % sliderImgs.length;
+      updateSlider();
+    }, 4000);
+
+    updateSlider();
 
     // Botón de "Volver al inicio"
     const backToTopButton = document.createElement('button');
@@ -124,4 +144,69 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         window.location.href = 'https://drive.google.com/drive/u/0/folders/1JrpQUfleNj7cBqK4qwfgTtBDn5F8z8ic';
     });
+
+    // Revisar cada 30 segundos
+    setInterval(verificarActualizacion, 30000);
+
+    // Llamar a la función al cargar la página
+    verificarActualizacion();
+
+    // --- ANIMACIÓN DE ENTRADA DE SECCIONES AL HACER SCROLL ---
+    function revealOnScroll() {
+        const revealElements = document.querySelectorAll('.hero-modern, .card-section, .icon-section, .logos-section, .main-footer');
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // --- ANIMACIÓN DE TÍTULO (ESCRITURA) ---
+    const heroTitle = document.querySelector('.hero-content h1');
+    if (heroTitle) {
+        heroTitle.classList.add('animated-title');
+    }
+
+    // --- BOTÓN FLOTANTE MEJORADO ---
+    const backToTopButton2 = document.getElementById('back-to-top');
+    if (backToTopButton2) {
+        backToTopButton2.innerHTML = '↑';
+    }
 });
+
+async function cargarEstado() {
+    try {
+        // Ruta relativa al archivo JSON
+        const response = await fetch('https://drive.google.com/uc?export=download&id=1CmjYPtAr3at1e31TxdnQ-6EfjA9-sKxe');
+        if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo estado.json');
+        }
+
+        // Leer el contenido del archivo JSON
+        const data = await response.json();
+
+        // Actualizar el contenido en el mensaje flotante
+        const mensajeFlotante = document.getElementById('mensaje-flotante');
+        if (mensajeFlotante) {
+            const mensaje = data.mensaje || 'Mensaje no disponible';
+            const fecha = data.ultima_actualizacion || 'Fecha no disponible';
+
+            // Crear contenido del mensaje flotante
+            mensajeFlotante.innerHTML = `
+                <span>${mensaje} (Última actualización: ${fecha})</span>
+                <button class="close-btn" onclick="document.getElementById('mensaje-flotante').classList.add('hidden')">×</button>
+            `;
+            mensajeFlotante.classList.remove('hidden'); // Mostrar el mensaje
+        }
+    } catch (error) {
+        console.error('Error al cargar el estado:', error);
+    }
+}
+
+// Ejecutar la función al cargar la página
+document.addEventListener('DOMContentLoaded', cargarEstado);
+

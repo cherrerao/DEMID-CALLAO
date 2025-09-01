@@ -11,13 +11,22 @@
     <div class="barra-demid">
         <span>DIRECCIÓN DE MEDICAMENTOS INSUMOS Y DROGAS - DEMID</span>
     </div>
+    <!-- Mensaje flotante de cierre de ICI -->
+    <div class="mensaje-flotante-ici">
+        <span class="mensaje-icono">⚠️</span>
+        <span class="mensaje-texto">
+            <strong>¡Atención!</strong> Estamos en proceso de cierre de ICI.<br>
+            <b>TODOS LOS CENTROS:</b> CERRAR Y ENVIAR SU ICI VIRTUAL <span class="mensaje-fecha">AGOSTO 2025</span> <b>Al Correo: demidcallao@gmail.com</b>
+        </span>
+        <span class="mensaje-cerrar" onclick="this.parentElement.style.display='none';" title="Cerrar">✖</span>
+    </div>
     <!-- Header sticky y compacto -->
     <header class="header-sticky">
         <div class="header-container">
             <img src="IMAGENES/SISMED.png" alt="Logo SISMED" class="logo-header">
             <nav class="nav-main">
                 <a href="#inicio">Inicio</a>
-                <a href="#servicios">Información</a>
+                <a href="#servicios">Servicios</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#enlaces">Enlaces</a>
                 <a href="#contacto">Contacto</a>
@@ -31,7 +40,7 @@
         <div class="hero-center">
             <h1 class="hero-title">Gestión Inteligente de Medicamentos</h1>
             <p class="hero-sub">SISMED Callao: Innovación, control y transparencia en la gestión farmacéutica.</p>
-            <a href="#servicios" class="btn-hero-main">Ver Información</a>
+            <a href="#servicios" class="btn-hero-main">Ver servicios</a>
         </div>
         <div class="hero-slider-carrusel">
           <button class="slider-arrow slider-arrow-left">&#10094;</button>
@@ -44,12 +53,12 @@
 
     <!-- Sección de servicios/módulos -->
     <section class="servicios-section" id="servicios">
-        <h2 class="section-title">SISMED – Información de Gestión y Digitación Disponible</h2>
+        <h2 class="section-title">¿Qué puedes hacer en SISMED?</h2>
         <div class="servicios-grid">
             <a class="servicio-card" href="https://cherrerao.github.io/Disponibilidad-Callao/" target="_blank">
                 <div class="servicio-icon"><img src="IMAGENES/img_1.png" alt="Gestión"></div>
                 <h3>Gestión de Medicamentos</h3>
-                <p>Revisa previamente la disponibilidad de los convenios de gestión vigentes.</p>
+                <p>Controla y supervisa el stock, ingreso y salida de productos farmacéuticos.</p>
             </a>
             <a class="servicio-card" href="https://app.powerbi.com/view?r=eyJrIjoiMjM1ZTQxN2EtOTM0MS00MDljLWJiZTktMGJmMDFlNjdlMDI5IiwidCI6IjdlM2NiNTU2LWIyMWQtNGY2Ni1iNmFiLTkxZTgzOGEyMDYwZSIsImMiOjR9" target="_blank">
                 <div class="servicio-icon"><img src="IMAGENES/img_2.png" alt="Disponibilidad"></div>
@@ -59,7 +68,7 @@
             <a class="servicio-card" href="https://cherrerao.github.io/TIPO_CONSUMO/" target="_blank">
                 <div class="servicio-icon"><img src="IMAGENES/img_3.png" alt="Digitación"></div>
                 <h3>Digitación</h3>
-                <p>Consulta el tipo de salida para la digitación de tu centro de salud.</p>
+                <p>Registra y actualiza información de consumo y movimientos de medicamentos.</p>
             </a>
            <!-- <a class="servicio-card" href="https://cherrerao.github.io/Disponibilidad-Callao/" target="_blank">
                 <div class="servicio-icon"><img src="IMAGENES/SISMED.png" alt="Reportes"></div>
@@ -88,28 +97,28 @@
     </section>
 
     <!-- Noticias DIRESA Callao -->
-    <section class="noticias-section" id="noticias">
-      <h2 class="section-title">Noticias DIRESA Callao</h2>
-      <ul class="noticias-list">
-        <li>
-          Chalacos más necesitados recibirán atención médica gratuita
-          <span class="noticia-fecha">10 de julio de 2025</span>
-        </li>
-        <li>
-          Hospitales y Establecimientos de Salud fortalecen sistema de salud con taller de mitigación de riesgos
-          <span class="noticia-fecha">11 de julio de 2025</span>
-        </li>
-        <li>
-          Región Callao previene Cáncer y fortalece salud de población chalaca
-          <span class="noticia-fecha">28 de junio de 2025</span>
-        </li>
-        <li>
-          Región Callao intensifica control vectorial en la lucha contra el dengue
-          <span class="noticia-fecha">27 de junio de 2025</span>
-        </li>
-      </ul>
-      <a href="https://www.gob.pe/institucion/regioncallao-diresa/noticias" target="_blank" class="btn-ver-todas">Ver todas las noticias</a>
-    </section>
+   <section class="noticias-section" id="noticias">
+  <h2 class="section-title">Noticias DIRESA Callao</h2>
+  <ul class="noticias-list">
+    <li>
+      En el Callao, más de 152 mil canes fueron protegidos en la campaña de vacunación VanCan 2025
+      <span class="noticia-fecha">29 de agosto de 2025</span>
+    </li>
+    <li>
+      DIRESA Callao premia a Bebé Mamoncito y Comeloncito en Semana de la “Lactancia Materna: Amor que nutre y Protege”
+      <span class="noticia-fecha">22 de agosto de 2025</span>
+    </li>
+    <li>
+      DIRESA Callao cumple 44° al servicio de la salud y presenta dos unidades móviles para llevar salud a todos los rincones del Callao
+      <span class="noticia-fecha">20 de agosto de 2025</span>
+    </li>
+    <li>
+      DIRESA Callao implementa sistema de información de Historia Clínica electrónica-SIHCE
+      <span class="noticia-fecha">4 de agosto de 2025</span>
+    </li>
+  </ul>
+  <a href="https://www.gob.pe/institucion/regioncallao-diresa/noticias" target="_blank" class="btn-ver-todas">Ver todas las noticias</a>
+</section>
 
     <!-- Enlaces rápidos -->
     <section class="quicklinks-section" id="enlaces">

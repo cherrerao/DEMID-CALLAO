@@ -1,4 +1,4 @@
-// Aquí puedes agregar cualquier script JavaScript necesario
+// Aquí puesdes agregar cualquier script JavaScript necesario
 
 document.addEventListener('DOMContentLoaded', function() {
     // --- Carrusel hero slider moderno ---

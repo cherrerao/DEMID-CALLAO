@@ -210,3 +210,13 @@ async function cargarEstado() {
 // Ejecutar la función al cargar la página
 document.addEventListener('DOMContentLoaded', cargarEstado);
 
+// Saludo dinámico según la hora
+(function() {
+    const saludo = document.getElementById('saludo-ici');
+    const hora = new Date().getHours();
+    let texto = "¡Buenos días!";
+    if (hora >= 12 && hora < 18) texto = "¡Buenas tardes!";
+    else if (hora >= 18 || hora < 6) texto = "¡Buenas noches!";
+    saludo.textContent = texto;
+})();
+

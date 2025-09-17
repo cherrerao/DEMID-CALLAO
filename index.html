@@ -23,14 +23,20 @@
     <!-- Header sticky y compacto -->
     <header class="header-sticky">
         <div class="header-container">
-            <img src="IMAGENES/SISMED.png" alt="Logo SISMED" class="logo-header">
+            <div class="header-logo">
+                <img src="IMAGENES/SISMED.png" alt="Logo SISMED" class="logo-header">
+            </div>
+            <div class="header-cronograma">
+                <a href="#cronograma" class="btn-flecha-cronograma">➡️</a>
+                <a href="#cronograma" class="btn-ir-cronograma">Ver Cronograma de Distribución</a>
+            </div>
             <nav class="nav-main">
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#enlaces">Enlaces</a>
                 <a href="#contacto">Contacto</a>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -96,6 +102,34 @@
         </div>
     </section>
 
+        <!-- Cronograma de Distribución de PF, DM y PS Setiembre 2025 -->
+<div class="cronograma-section" id="cronograma">
+  <!-- <h2 class="section-title">Cronograma de Distribución de PF, DM y PS<br>Setiembre 2025</h2> -->
+  <div class="cronograma-img-container">
+    <img src="IMAGENES/DISTRIBUCION.JPG" alt="Cronograma de distribución de PF, DM y PS Setiembre 2025" class="cronograma-img">
+  </div>
+</div>
+
+
+   <!-- Capacidad Instalada -->
+   <!--  <section class="capacidad-section" id="capacidad-instalada">
+  <div class="excel-table-container">
+    <h2 class="excel-title">Capacidad Instalada</h2>
+    <div class="excel-actions">
+      <a href="CAPACIDAD_INSTALADAFINAL.xlsx" download class="excel-download-btn">Descargar Excel</a>
+      <input type="text" id="search-input" class="excel-search" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
+    </div>
+    <div class="excel-table-wrapper">
+      <table id="data-table" class="excel-table">
+        <thead>
+          <tr id="table-header"></tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>-->
+
     <!-- Noticias DIRESA Callao -->
    <section class="noticias-section" id="noticias">
   <h2 class="section-title">Noticias DIRESA Callao</h2>
@@ -158,7 +192,10 @@
             </div>
         </div>
     </footer>
+    <!-- CORRIGE EL ORDEN DE LOS SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <script src="script.js"></script>
+   
     <!-- Mensaje flotante tipo anuncio modal -->
     <!--<div class="modal-ici" id="modalIci">
         <div class="modal-ici-content">
@@ -171,8 +208,10 @@
                 <b>Gracias.</b>
             </div>
             <button class="modal-ici-cerrar" onclick="document.getElementById('modalIci').style.display='none'">Entendido</button>
-        </div>-->
-    </div>
+        </div>
+    </div>-->
+
+ 
+
 </body>
 </html>
-

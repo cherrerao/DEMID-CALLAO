@@ -1,4 +1,4 @@
-// Aquí puesdes agregar cualquier script JavaScript necesario
+// Aquí puedes agregar cualquier script JavaScript necesario
 
 document.addEventListener('DOMContentLoaded', function() {
     // --- Carrusel hero slider moderno ---
@@ -219,4 +219,73 @@ document.addEventListener('DOMContentLoaded', cargarEstado);
     else if (hora >= 18 || hora < 6) texto = "¡Buenas noches!";
     saludo.textContent = texto;
 })();
+
+// --- VISUALIZAR EXCEL "CAPACIDAD INSTALADA - FINAL.xlsx" EN TABLA ---
+ function cargarExcel() {
+            fetch('CAPACIDAD_INSTALADAFINAL.xlsx')
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    let workbook = XLSX.read(data, { type: 'array' });
+                    let sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+
+                    let tableHeader = document.getElementById("table-header");
+                    let tableBody = document.getElementById("table-body");
+
+                    tableHeader.innerHTML = "";
+                    tableBody.innerHTML = "";
+
+                    // Encuentra la fila que contiene los encabezados reales
+                    let headerIndex = jsonData.findIndex(row => row.includes("RED"));
+                    if (headerIndex === -1) {
+                        console.error("No se encontró la fila de encabezados en el archivo Excel.");
+                        return;
+                    }
+
+                    // Usa la fila de encabezados reales
+                    let headers = jsonData[headerIndex];
+                    headers.forEach(header => {
+                        let th = document.createElement("th");
+                        th.textContent = header;
+                        th.classList.add("center"); // Centra todas las cabeceras
+                        tableHeader.appendChild(th);
+                    });
+
+                    // Procesa las filas de datos (después de los encabezados)
+                    jsonData.slice(headerIndex + 1).forEach(row => {
+                        let tr = document.createElement("tr");
+                        row.forEach((cell, index) => {
+                            let td = document.createElement("td");
+                            td.textContent = cell;
+
+                            // Aplica la clase 'left' solo al contenido de la columna "DESCRIPCION"
+                            if (headers[index].toLowerCase() === "ESTABLECIMIENTO") {
+                                td.classList.add("left");
+                            } else {
+                                td.classList.add("center");
+                            }
+
+                            tr.appendChild(td);
+                        });
+                        tableBody.appendChild(tr);
+                    });
+                })
+                .catch(error => console.error("Error al cargar el archivo Excel:", error));
+        }
+document.addEventListener('DOMContentLoaded', function() {
+    cargarExcelCapacidad();
+});
+
+function filtrarTabla() {
+    const input = document.getElementById("search-input");
+    const filter = input.value.toLowerCase();
+    const tableBody = document.getElementById("table-body");
+    const rows = tableBody.getElementsByTagName("tr");
+
+    for (let row of rows) {
+        let cells = row.getElementsByTagName("td");
+        let match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(filter));
+        row.style.display = match ? "" : "none";
+    }
+}
 

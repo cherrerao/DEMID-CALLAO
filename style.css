@@ -20,12 +20,31 @@ body {
     backdrop-filter: blur(6px);
 }
 .header-container {
-    width: 100%;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.7rem 0rem 0.7rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.header-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-cronograma {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-main {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
 }
 .logo-header {
     height: 70px;
@@ -37,12 +56,6 @@ body {
     margin-right: 0;
     flex-shrink: 0;
     display: block;
-}
-.nav-main {
-    display: flex;
-    gap: 2.5rem;
-    margin-left: 0;
-    margin-right: 0;
 }
 .nav-main a {
     color: #0a6cff;
@@ -857,5 +870,205 @@ body {
     .modal-ici-icono {
         font-size: 2em;
     }
+}
+
+/* Centrado y estilo para el cronograma */
+.cronograma-section {
+  text-align: center;
+  margin: 40px 0 30px 0;
+}
+
+.cronograma-section .section-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #2d3e50;
+}
+
+.cronograma-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cronograma-img {
+  max-width: 100vw;
+  width: 1200px;
+  max-height: 700px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  object-fit: contain;
+}
+
+.btn-ir-cronograma {
+  display: inline-block;
+  background: #2d7be0;
+  color: #fff;
+  font-size: 1.05em;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(44,123,224,0.12);
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-ir-cronograma:hover {
+  background: #1959a6;
+}
+.btn-fecha-cronograma {
+  background: #ff9800;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 10px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 18px;
+  box-shadow: 0 2px 8px rgba(255,152,0,0.12);
+  animation: pulse 1.2s infinite;
+  border: none;
+  outline: none;
+  transition: background 0.2s;
+}
+.btn-fecha-cronograma:hover {
+  background: #e67c00;
+}
+
+.btn-flecha-cronograma {
+  background: #ff9800;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(255,152,0,0.12);
+  animation: pulse 1.2s infinite;
+  border: none;
+  outline: none;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-flecha-cronograma:hover {
+  background: #e67c00;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,152,0,0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(255,152,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,152,0,0); }
+}
+
+.excel-table-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 32px 24px;
+}
+.excel-title {
+    text-align: center;
+    color: #1976d2;
+    font-size: 2rem;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.excel-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+.excel-download-btn {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.excel-download-btn:hover {
+    background: #1565c0;
+}
+.excel-search {
+    padding: 10px 16px;
+    font-size: 1rem;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    width: 320px;
+    max-width: 100%;
+}
+.excel-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+.excel-table {
+    width: 100%;
+    min-width: 900px; /* Puedes ajustar este valor según el mínimo deseado */
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 10px;
+    table-layout: auto;
+}
+@media (max-width: 900px) {
+    .excel-table {
+        min-width: 600px;
+        font-size: 13px;
+    }
+    .excel-table-container {
+        padding: 12px 2px;
+    }
+}
+@media (max-width: 600px) {
+    .excel-table {
+        min-width: 400px;
+        font-size: 11px;
+    }
+    .excel-title {
+        font-size: 1.2rem;
+    }
+    .excel-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .excel-search {
+        width: 100%;
+    }
+}
+.excel-table th, .excel-table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px 8px;
+    font-size: 15px;
+}
+.excel-table th {
+    background: #1976d2;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+.excel-table tr:nth-child(even) {
+    background: #f7f7f7;
+}
+.excel-table tr:hover {
+    background: #eafaf1;
+}
+.excel-table td {
+    text-align: center;
+}
+.excel-table td.left {
+    text-align: left;
 }
 

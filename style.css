@@ -1065,7 +1065,8 @@ body {
 .excel-table tr:hover {
     background: #eafaf1;
 }
-.excel-table td {
+.excel-table th.center, 
+.excel-table td.center {
     text-align: center;
 }
 .excel-table td.left {

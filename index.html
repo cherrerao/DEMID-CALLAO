@@ -8,19 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Barra superior -->
     <div class="barra-demid">
         <span>DIRECCIÓN DE MEDICAMENTOS INSUMOS Y DROGAS - DEMID</span>
     </div>
-    <!-- Mensaje flotante de cierre de ICI -->
-    <!--<div class="mensaje-flotante-ici">
-        <span class="mensaje-icono">⚠️</span>
-        <span class="mensaje-texto">
-            <strong>¡Atención!</strong> Estamos en proceso de cierre de ICI.<br>
-            <b>TODOS LOS CENTROS:</b> CERRAR Y ENVIAR SU ICI VIRTUAL <span class="mensaje-fecha">AGOSTO 2025</span> <b>Al Correo: demidcallao@gmail.com</b>
-        </span>
-        <span class="mensaje-cerrar" onclick="this.parentElement.style.display='none';" title="Cerrar">✖</span>
-    </div>-->
-    <!-- Header sticky y compacto -->
+
+    <!-- Header -->
     <header class="header-sticky">
         <div class="header-container">
             <div class="header-logo">
@@ -35,12 +28,13 @@
                 <a href="#servicios">Servicios</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#enlaces">Enlaces</a>
-                <a href="#contacto">Contacto</a>
-            </div>
+                <a href="#contacto">Email ICI Mensual</a>
+                <a href="#capacidad-instalada">Contactos Centros</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero a pantalla completa -->
+    <!-- Hero -->
     <section class="hero-full" id="inicio">
         <div class="hero-bg-blur"></div>
         <div class="hero-center">
@@ -49,15 +43,16 @@
             <a href="#servicios" class="btn-hero-main">Ver servicios</a>
         </div>
         <div class="hero-slider-carrusel">
-          <button class="slider-arrow slider-arrow-left">&#10094;</button>
-          <img src="IMAGENES/IMAGEN_1.jpg" alt="Sede 1" class="slider-img slider-img-left">
-          <img src="IMAGENES/IMAGEN_2.jpg" alt="Sede 2" class="slider-img slider-img-center">
-          <img src="IMAGENES/IMAGEN_3.jpg" alt="Sede 3" class="slider-img slider-img-right">
-          <button class="slider-arrow slider-arrow-right">&#10095;</button>
+            <button class="slider-arrow slider-arrow-left">&#10094;</button>
+            <img src="IMAGENES/IMAGEN_1.jpg" alt="Sede 1" class="slider-img slider-img-left">
+            <img src="IMAGENES/IMAGEN_2.jpg" alt="Sede 2" class="slider-img slider-img-center">
+            <img src="IMAGENES/IMAGEN_4.png" alt="Sede 3" class="slider-img slider-img-right">
+            <!--<img src="IMAGENES/IMAGEN_4.png" alt="Sede 4" class="slider-img slider">-->
+            <button class="slider-arrow slider-arrow-right">&#10095;</button>
         </div>
     </section>
 
-    <!-- Sección de servicios/módulos -->
+    <!-- Sección de servicios -->
     <section class="servicios-section" id="servicios">
         <h2 class="section-title">¿Qué puedes hacer en SISMED?</h2>
         <div class="servicios-grid">
@@ -76,11 +71,6 @@
                 <h3>Digitación</h3>
                 <p>Consulta el tipo de salida en su centro de salud.</p>
             </a>
-           <!-- <a class="servicio-card" href="https://cherrerao.github.io/Disponibilidad-Callao/" target="_blank">
-                <div class="servicio-icon"><img src="IMAGENES/SISMED.png" alt="Reportes"></div>
-                <h3>Reportes y Análisis</h3>
-                <p>Genera reportes y visualiza indicadores clave para la toma de decisiones.</p>
-            </a> -->
         </div>
     </section>
 
@@ -102,57 +92,39 @@
         </div>
     </section>
 
-        <!-- Cronograma de Distribución de PF, DM y PS Setiembre 2025 -->
-<div class="cronograma-section" id="cronograma">
-  <!-- <h2 class="section-title">Cronograma de Distribución de PF, DM y PS<br>Setiembre 2025</h2> -->
-  <div class="cronograma-img-container">
-    <img src="IMAGENES/DISTRIBUCION.JPG" alt="Cronograma de distribución de PF, DM y PS Setiembre 2025" class="cronograma-img">
-  </div>
-</div>
-
-
-   <!-- Capacidad Instalada -->
-   <!--  <section class="capacidad-section" id="capacidad-instalada">
-  <div class="excel-table-container">
-    <h2 class="excel-title">Capacidad Instalada</h2>
-    <div class="excel-actions">
-      <a href="CAPACIDAD_INSTALADAFINAL.xlsx" download class="excel-download-btn">Descargar Excel</a>
-      <input type="text" id="search-input" class="excel-search" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
+    <!-- Cronograma -->
+    <div class="cronograma-section" id="cronograma">
+        <div class="cronograma-img-container">
+            <img src="IMAGENES/DISTRIBUCION.JPG" alt="Cronograma de distribución" class="cronograma-img">
+        </div>
     </div>
-    <div class="excel-table-wrapper">
-      <table id="data-table" class="excel-table">
-        <thead>
-          <tr id="table-header"></tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
-    </div>
-  </div>
-</section>-->
 
-    <!-- Noticias DIRESA Callao -->
-   <section class="noticias-section" id="noticias">
-  <h2 class="section-title">Noticias DIRESA Callao</h2>
-  <ul class="noticias-list">
-    <li>
-      En el Callao, más de 152 mil canes fueron protegidos en la campaña de vacunación VanCan 2025
-      <span class="noticia-fecha">29 de agosto de 2025</span>
-    </li>
-    <li>
-      DIRESA Callao premia a Bebé Mamoncito y Comeloncito en Semana de la “Lactancia Materna: Amor que nutre y Protege”
-      <span class="noticia-fecha">22 de agosto de 2025</span>
-    </li>
-    <li>
-      DIRESA Callao cumple 44° al servicio de la salud y presenta dos unidades móviles para llevar salud a todos los rincones del Callao
-      <span class="noticia-fecha">20 de agosto de 2025</span>
-    </li>
-    <li>
-      DIRESA Callao implementa sistema de información de Historia Clínica electrónica-SIHCE
-      <span class="noticia-fecha">4 de agosto de 2025</span>
-    </li>
-  </ul>
-  <a href="https://www.gob.pe/institucion/regioncallao-diresa/noticias" target="_blank" class="btn-ver-todas">Ver todas las noticias</a>
-</section>
+ <section class="capacidad-section" id="capacidad-instalada">
+    <div class="excel-table-container">
+      <h2 class="excel-title">CONTACTOS RESPONSABLES DE ESTABLECIMIENTOS - REDES CALLAO</h2>
+      <div class="excel-table-wrapper">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
+        </div>
+        <table id="data-table" class="excel-table">
+          <thead><tr id="table-header"></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+    <!-- Noticias -->
+    <section class="noticias-section" id="noticias">
+        <h2 class="section-title">Noticias DIRESA Callao</h2>
+        <ul class="noticias-list">
+            <li>En el Callao, más de 152 mil canes fueron protegidos en la campaña VanCan 2025 <span class="noticia-fecha">29 de agosto de 2025</span></li>
+            <li>DIRESA Callao premia a Bebé Mamoncito y Comeloncito en Semana de la Lactancia Materna <span class="noticia-fecha">22 de agosto de 2025</span></li>
+            <li>DIRESA Callao cumple 44° al servicio de la salud y presenta dos unidades móviles <span class="noticia-fecha">20 de agosto de 2025</span></li>
+            <li>DIRESA Callao implementa sistema de información de Historia Clínica electrónica-SIHCE <span class="noticia-fecha">4 de agosto de 2025</span></li>
+        </ul>
+        <a href="https://www.gob.pe/institucion/regioncallao-diresa/noticias" target="_blank" class="btn-ver-todas">Ver todas las noticias</a>
+    </section>
 
     <!-- Enlaces rápidos -->
     <section class="quicklinks-section" id="enlaces">
@@ -165,22 +137,21 @@
         </div>
     </section>
 
-    <!-- Contacto destacado -->
+    <!-- Contacto -->
     <section class="contact-section" id="contacto">
-      <div class="contact-container">
-        <h2>Contacto</h2>
-        <p><strong>Este correo es solo para el envío del ICI Virtual.</strong></p>
-        <p class="contact-note">demidcallao@gmail.com</p>
-        <a href="https://mail.google.com/mail/?view=cm&to=demidcallao@gmail.com&su=ICI%20Virtual" target="_blank" class="contact-mail-link">
-          <span class="mail-icon">📧</span>
-          Enviar ICI Virtual por Gmail
-        </a>
-        <p class="contact-note">No se atenderán otras consultas por este medio.</p>
-      </div>
+        <div class="contact-container">
+            <h2>Contacto</h2>
+            <p><strong>Este correo es solo para el envío del ICI Virtual.</strong></p>
+            <p class="contact-note">demidcallao@gmail.com</p>
+            <a href="https://mail.google.com/mail/?view=cm&to=demidcallao@gmail.com&su=ICI%20Virtual" target="_blank" class="contact-mail-link">
+                <span class="mail-icon">📧</span> Enviar ICI Virtual por Gmail
+            </a>
+            <p class="contact-note">No se atenderán otras consultas por este medio.</p>
+        </div>
     </section>
 
-    <!-- Footer moderno -->
-    <footer class="footer-main" id="contacto">
+    <!-- Footer -->
+    <footer class="footer-main">
         <div class="footer-content">
             <div class="footer-logos">
                 <a href="https://www.minsa.gob.pe/" target="_blank"><img src="IMAGENES/Minsa.png" alt="Minsa"></a>
@@ -192,27 +163,10 @@
             </div>
         </div>
     </footer>
-    <!-- CORRIGE EL ORDEN DE LOS SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+    <!-- Scripts -->
+        <!-- Capacidad Instalada -->
     <script src="script.js"></script>
-   
-    <!-- Mensaje flotante tipo anuncio modal -->
-    <!--<div class="modal-ici" id="modalIci">
-        <div class="modal-ici-content">
-            <span class="modal-ici-icono">⚠️</span>
-            <div class="modal-ici-texto">
-                <strong><span id="saludo-ici"></span></strong><br>
-                El ICI físico pueden traerlo a partir del día <b>VIERNES 05</b>.<br>
-                No olvidar que primero tienen que regularizar sus <b>TRANSFERENCIAS</b> en Almacén de medicamentos con el Sr. Anggello.<br>
-                Posterior a ello se recepcionará su ICI.<br>
-                <b>Gracias.</b>
-            </div>
-            <button class="modal-ici-cerrar" onclick="document.getElementById('modalIci').style.display='none'">Entendido</button>
-        </div>
-    </div>-->
-
- 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 </body>
 </html>
-

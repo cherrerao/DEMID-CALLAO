@@ -178,103 +178,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-async function cargarEstado() {
-    try {
-        // Ruta relativa al archivo JSON
-        const response = await fetch('https://drive.google.com/uc?export=download&id=1CmjYPtAr3at1e31TxdnQ-6EfjA9-sKxe');
-        if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo estado.json');
+async function cargarExcel() {
+      try {
+        const response = await fetch("CAPACIDAD.xlsx");
+        const data = await response.arrayBuffer();
+
+        const workbook = XLSX.read(data, { type: "array" });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+        // Buscar encabezados (RED, ESTABLECIMIENTO, etc.)
+        let headerIndex = jsonData.findIndex(row =>
+          row.some(cell =>
+            ["REDES", "ESTABLECIMIENTO"].includes(cell?.toString().trim().toUpperCase())
+          )
+        );
+
+        if (headerIndex === -1) {
+          alert("No se encontraron encabezados (RED o ESTABLECIMIENTO)");
+          return;
         }
 
-        // Leer el contenido del archivo JSON
-        const data = await response.json();
+        const headers = jsonData[headerIndex].map(h => h?.toString().trim() || "");
+        const rows = jsonData.slice(headerIndex + 1);
 
-        // Actualizar el contenido en el mensaje flotante
-        const mensajeFlotante = document.getElementById('mensaje-flotante');
-        if (mensajeFlotante) {
-            const mensaje = data.mensaje || 'Mensaje no disponible';
-            const fecha = data.ultima_actualizacion || 'Fecha no disponible';
+        let thead = document.getElementById("table-header");
+        let tbody = document.getElementById("table-body");
+        thead.innerHTML = "";
+        tbody.innerHTML = "";
 
-            // Crear contenido del mensaje flotante
-            mensajeFlotante.innerHTML = `
-                <span>${mensaje} (Última actualización: ${fecha})</span>
-                <button class="close-btn" onclick="document.getElementById('mensaje-flotante').classList.add('hidden')">×</button>
-            `;
-            mensajeFlotante.classList.remove('hidden'); // Mostrar el mensaje
-        }
-    } catch (error) {
-        console.error('Error al cargar el estado:', error);
+        headers.forEach(headerText => {
+          let th = document.createElement("th");
+          th.textContent = headerText;
+          thead.appendChild(th);
+        });
+
+        rows.forEach(row => {
+          let tr = document.createElement("tr");
+          headers.forEach((_, i) => {
+            let td = document.createElement("td");
+            td.textContent = row[i] !== undefined ? row[i] : "";
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+      } catch (error) {
+        console.error("Error cargando Excel:", error);
+      }
     }
-}
 
-// Ejecutar la función al cargar la página
-document.addEventListener('DOMContentLoaded', cargarEstado);
+    document.addEventListener("DOMContentLoaded", cargarExcel);
 
-// Saludo dinámico según la hora
-(function() {
-    const saludo = document.getElementById('saludo-ici');
-    const hora = new Date().getHours();
-    let texto = "¡Buenos días!";
-    if (hora >= 12 && hora < 18) texto = "¡Buenas tardes!";
-    else if (hora >= 18 || hora < 6) texto = "¡Buenas noches!";
-    saludo.textContent = texto;
-})();
-
-// --- VISUALIZAR EXCEL "CAPACIDAD INSTALADA - FINAL.xlsx" EN TABLA ---
- function cargarExcel() {
-            fetch('CAPACIDAD_INSTALADAFINAL.xlsx')
-                .then(response => response.arrayBuffer())
-                .then(data => {
-                    let workbook = XLSX.read(data, { type: 'array' });
-                    let sheet = workbook.Sheets[workbook.SheetNames[0]];
-                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
-
-                    let tableHeader = document.getElementById("table-header");
-                    let tableBody = document.getElementById("table-body");
-
-                    tableHeader.innerHTML = "";
-                    tableBody.innerHTML = "";
-
-                    // Encuentra la fila que contiene los encabezados reales
-                    let headerIndex = jsonData.findIndex(row => row.includes("RED"));
-                    if (headerIndex === -1) {
-                        console.error("No se encontró la fila de encabezados en el archivo Excel.");
-                        return;
-                    }
-
-                    // Usa la fila de encabezados reales
-                    let headers = jsonData[headerIndex];
-                    headers.forEach(header => {
-                        let th = document.createElement("th");
-                        th.textContent = header;
-                        th.classList.add("center"); // Centra todas las cabeceras
-                        tableHeader.appendChild(th);
-                    });
-
-                    // Procesa las filas de datos (después de los encabezados)
-                    jsonData.slice(headerIndex + 1).forEach(row => {
-                        let tr = document.createElement("tr");
-                        row.forEach((cell, index) => {
-                            let td = document.createElement("td");
-                            td.textContent = cell;
-
-                            // Aplica la clase 'left' solo al contenido de la columna "DESCRIPCION"
-                            if (headers[index].toLowerCase() === "ESTABLECIMIENTO") {
-                                td.classList.add("left");
-                            } else {
-                                td.classList.add("center");
-                            }
-
-                            tr.appendChild(td);
-                        });
-                        tableBody.appendChild(tr);
-                    });
-                })
-                .catch(error => console.error("Error al cargar el archivo Excel:", error));
-        }
 document.addEventListener('DOMContentLoaded', function() {
-    cargarExcelCapacidad();
+    cargarExcel();
 });
+
+
+
 
 function filtrarTabla() {
     const input = document.getElementById("search-input");

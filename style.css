@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('imagenes/DIRESACALLAO.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #000080; /* Azul oscuro para el texto */
+}
+header {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente blanco para mejorar la legibilidad */
+    color: #000080; /* Azul oscuro para el texto */
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+}
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente blanco para mejorar la legibilidad */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+.content {
+    flex: 1 1 60%;
+}
+h1, h2 {
+    color: #00796b;
+}
+.links {
+    list-style: none;
+    padding: 0;
+}
+.links li {
+    margin: 10px 0;
+}
+.links a {
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+.links a:hover {
+    color: #004d40;
+    border-bottom: 2px solid #004d40;
+}
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    flex: 1 1 30%;
+}
+.images img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente blanco para mejorar la legibilidad */
+    color: #000080; /* Azul oscuro para el texto */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-radius: 10px;
+}
+.float-image {
+    float: left;
+    margin: 10px;
+}
+a {
+    color: #000080; /* Azul oscuro para los enlaces */
+}
+a:hover {
+    color: #ff4500; /* Naranja para los enlaces al pasar el ratón */
+}
+.link-item {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISMED | DEMID Callao</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra superior -->
+    <!--<div class="barra-demid">
+        <span>DIRECCIÓN DE MEDICAMENTOS INSUMOS Y DROGAS - DEMID</span>
+    </div>-->
+
+    <!-- Header -->
+    <header class="header-sticky">
+        <div class="header-container">
+            <div class="header-logo" class="barra-demid">
+                <img src="IMAGENES/SISMED.png" alt="Logo SISMED" class="logo-header">
+                <h4>DIRECCIÓN DE MEDICAMENTOS INSUMOS Y DROGAS - DEMID</h4>
+            </div>
+
+            <div class="header-cronograma">
+                <a href="#cronograma" class="btn-flecha-cronograma">➡️</a>
+                <a href="#cronograma" class="btn-ir-cronograma">Ver Cronograma de Distribución</a>
+            </div>
+            <nav class="nav-main">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#enlaces">Enlaces</a>
+                <a href="#contacto">Email ICI Virtual</a>
+                <a href="#capacidad-instalada">Contactos Centros</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-full" id="inicio">
+        <div class="hero-bg-blur"></div>
+        <div class="hero-center">
+            <h1 class="hero-title">Gestión Inteligente de Medicamentos</h1>
+            <p class="hero-sub">SISMED Callao: Innovación, control y transparencia en la gestión farmacéutica.</p>
+            <a href="#servicios" class="btn-hero-main">Ver servicios</a>
+        </div>
+        <div class="hero-slider-carrusel">
+            <button class="slider-arrow slider-arrow-left">&#10094;</button>
+            <img src="IMAGENES/IMAGEN_1.jpg" alt="Sede 1" class="slider-img slider-img-left">
+            <img src="IMAGENES/IMAGEN_2.jpg" alt="Sede 2" class="slider-img slider-img-center">
+            <img src="IMAGENES/IMAGEN_4.png" alt="Sede 3" class="slider-img slider-img-right">
+            <img src="IMAGENES/IMAGEN_3.jpg" alt="Sede 4" class="slider-img slider-img-right">
+            <!--<img src="IMAGENES/IMAGEN_4.png" alt="Sede 4" class="slider-img slider">-->
+            <button class="slider-arrow slider-arrow-right">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sección de servicios -->
+    <section class="servicios-section" id="servicios">
+        <h2 class="section-title">¿Qué puedes hacer en SISMED?</h2>
+        <div class="servicios-grid">
+            <a class="servicio-card" href="https://cherrerao.github.io/Disponibilidad-Callao/" target="_blank">
+                <div class="servicio-icon"><img src="IMAGENES/img_1.png" alt="Gestión"></div>
+                <h3>Gestión de Medicamentos</h3>
+                <p>Consulta la disponibilidad previa de los convenios de gestión 2025.</p>
+            </a>
+            <a class="servicio-card" href="https://app.powerbi.com/view?r=eyJrIjoiMjM1ZTQxN2EtOTM0MS00MDljLWJiZTktMGJmMDFlNjdlMDI5IiwidCI6IjdlM2NiNTU2LWIyMWQtNGY2Ni1iNmFiLTkxZTgzOGEyMDYwZSIsImMiOjR9" target="_blank">
+                <div class="servicio-icon"><img src="IMAGENES/img_2.png" alt="Disponibilidad"></div>
+                <h3>Disponibilidad</h3>
+                <p>Consulta la disponibilidad en tiempo real en establecimientos de salud.</p>
+            </a>
+            <a class="servicio-card" href="https://cherrerao.github.io/TIPO_CONSUMO/" target="_blank">
+                <div class="servicio-icon"><img src="IMAGENES/img_3.png" alt="Digitación"></div>
+                <h3>Digitación</h3>
+                <p>Consulta el tipo de salida en su centro de salud.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sobre nosotros -->
+    <section class="about-section" id="nosotros">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="IMAGENES/diresa.png" alt="DIRESA Callao">
+            </div>
+            <div class="about-text">
+                <h2>Sobre DEMID Callao</h2>
+                <p>La Dirección Ejecutiva de Medicamentos, Insumos y Drogas (DEMID) es la encargada de regular, supervisar y garantizar el uso seguro y eficiente de medicamentos e insumos médicos en la región Callao.</p>
+                <ul>
+                    <li>Supervisión de establecimientos farmacéuticos</li>
+                    <li>Autorización y control de boticas y farmacias</li>
+                    <li>Vigilancia sanitaria y capacitación</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cronograma -->
+    <div class="cronograma-section" id="cronograma">
+        <div class="cronograma-img-container">
+            <img src="IMAGENES/DISTRIBUCION.JPG" alt="Cronograma de distribución" class="cronograma-img">
+        </div>
+    </div>
+
+ <section class="capacidad-section" id="capacidad-instalada">
+    <div class="excel-table-container">
+      <h2 class="excel-title">CONTACTOS RESPONSABLES DE ESTABLECIMIENTOS - REDES CALLAO</h2>
+      <div class="excel-table-wrapper">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
+        </div>
+        <table id="data-table" class="excel-table">
+          <thead><tr id="table-header"></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+    <!-- Noticias -->
+    <section class="noticias-section" id="noticias">
+        <h2 class="section-title">Noticias DIRESA Callao</h2>
+        <ul class="noticias-list">
+            <li>En el Callao, más de 152 mil canes fueron protegidos en la campaña VanCan 2025 <span class="noticia-fecha">29 de agosto de 2025</span></li>
+            <li>DIRESA Callao premia a Bebé Mamoncito y Comeloncito en Semana de la Lactancia Materna <span class="noticia-fecha">22 de agosto de 2025</span></li>
+            <li>DIRESA Callao cumple 44° al servicio de la salud y presenta dos unidades móviles <span class="noticia-fecha">20 de agosto de 2025</span></li>
+            <li>DIRESA Callao implementa sistema de información de Historia Clínica electrónica-SIHCE <span class="noticia-fecha">4 de agosto de 2025</span></li>
+        </ul>
+        <a href="https://www.gob.pe/institucion/regioncallao-diresa/noticias" target="_blank" class="btn-ver-todas">Ver todas las noticias</a>
+    </section>
+
+    <!-- Enlaces rápidos -->
+    <section class="quicklinks-section" id="enlaces">
+        <h2 class="section-title">Enlaces Rápidos</h2>
+        <div class="quicklinks-grid">
+            <a href="https://www.diresacallao.gob.pe/" target="_blank" class="quicklink-btn">DIRESA Callao</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1JrpQUfleNj7cBqK4qwfgTtBDn5F8z8ic" target="_blank" class="quicklink-btn">Manuales SISMED</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1tq0Hjh8RuHD_ATv-HDn5mcwxwBupp4nf" target="_blank" class="quicklink-btn">Catálogo y Precios</a>
+            <a href="https://mail.google.com/mail/?view=cm&to=demidcallao@gmail.com&su=ICI%20Virtual" class="quicklink-btn">Contacto por Email</a>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-container">
+            <h2>Contacto</h2>
+            <p><strong>Este correo es solo para el envío del ICI Virtual.</strong></p>
+            <p class="contact-note">demidcallao@gmail.com</p>
+            <a href="https://mail.google.com/mail/?view=cm&to=demidcallao@gmail.com&su=ICI%20Virtual" target="_blank" class="contact-mail-link">
+                <span class="mail-icon">📧</span> Enviar ICI Virtual por Gmail
+            </a>
+            <p class="contact-note">No se atenderán otras consultas por este medio.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-main">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <a href="https://www.minsa.gob.pe/" target="_blank"><img src="IMAGENES/Minsa.png" alt="Minsa"></a>
+                <a href="https://www.sis.gob.pe/" target="_blank"><img src="IMAGENES/SIS.png" alt="SIS"></a>
+                <a href="https://www.diresacallao.gob.pe/" target="_blank"><img src="IMAGENES/diresa.png" alt="DIRESA"></a>
+            </div>
+            <div class="footer-info">
+                <p>© 2025 SISMED - DEMID Callao. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+        <!-- Capacidad Instalada -->
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+</body>
+</html>

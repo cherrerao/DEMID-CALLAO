@@ -10,14 +10,51 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateSlider() {
       sliderImgs.forEach((img, i) => {
         img.classList.remove('slider-img-left', 'slider-img-center', 'slider-img-right');
+        // Reset all images to default state
+        img.style.opacity = '0.2';
+        img.style.filter = 'blur(4px) grayscale(90%)';
+        img.style.transform = 'scale(1)';
+        img.style.zIndex = '1';
       });
+      
       const total = sliderImgs.length;
-      const left = (sliderIndex - 1 + total) % total;
+      if (total === 0) return;
+      
+      // Center image - 3D effect with floating animation
       const center = sliderIndex;
-      const right = (sliderIndex + 1) % total;
-      sliderImgs[left].classList.add('slider-img-left');
       sliderImgs[center].classList.add('slider-img-center');
-      sliderImgs[right].classList.add('slider-img-right');
+      sliderImgs[center].style.opacity = '1';
+      sliderImgs[center].style.filter = 'none';
+      sliderImgs[center].style.transform = 'rotateY(0deg) translateZ(100px) scale(1.1)';
+      sliderImgs[center].style.zIndex = '3';
+      
+      // Left and right images - 3D side effects
+      if (total > 1) {
+        const left = (sliderIndex - 1 + total) % total;
+        const right = (sliderIndex + 1) % total;
+        
+        sliderImgs[left].classList.add('slider-img-left');
+        sliderImgs[left].style.opacity = '0.4';
+        sliderImgs[left].style.filter = 'blur(1px) grayscale(60%)';
+        sliderImgs[left].style.transform = 'rotateY(25deg) translateZ(20px) scale(0.8)';
+        sliderImgs[left].style.zIndex = '2';
+        
+        sliderImgs[right].classList.add('slider-img-right');
+        sliderImgs[right].style.opacity = '0.4';
+        sliderImgs[right].style.filter = 'blur(1px) grayscale(60%)';
+        sliderImgs[right].style.transform = 'rotateY(-25deg) translateZ(20px) scale(0.8)';
+        sliderImgs[right].style.zIndex = '2';
+      }
+      
+      // Hide other images if there are more than 3
+      sliderImgs.forEach((img, i) => {
+        if (i !== center && i !== (sliderIndex - 1 + total) % total && i !== (sliderIndex + 1) % total) {
+          img.style.opacity = '0.1';
+          img.style.filter = 'blur(5px) grayscale(95%)';
+          img.style.transform = 'scale(0.7)';
+          img.style.zIndex = '0';
+        }
+      });
     }
 
     leftBtn.addEventListener('click', () => {
@@ -153,17 +190,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- ANIMACIÓN DE ENTRADA DE SECCIONES AL HACER SCROLL ---
     function revealOnScroll() {
-        const revealElements = document.querySelectorAll('.hero-modern, .card-section, .icon-section, .logos-section, .main-footer');
+        const revealElements = document.querySelectorAll('.servicios-section, .about-section, .quicklinks-section, .contact-section, .footer-main');
         const windowHeight = window.innerHeight;
-        revealElements.forEach(el => {
+        revealElements.forEach((el, index) => {
             const elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - 60) {
-                el.classList.add('visible');
+            if (elementTop < windowHeight - 100) {
+                el.style.animation = `slideInFromLeft 0.8s ease-out ${index * 0.2}s both`;
+                el.style.opacity = '1';
             }
         });
     }
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
+
+    // --- EFECTOS DE PARALLAX ---
+    function parallaxScroll() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.hero-bg-blur, .servicios-section::before');
+        
+        parallaxElements.forEach((el, index) => {
+            const speed = 0.5 + (index * 0.1);
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    }
+    window.addEventListener('scroll', parallaxScroll);
+
+    // --- MICRO-INTERACCIONES ---
+    function addMicroInteractions() {
+        // Efecto magnetic en botones
+        const buttons = document.querySelectorAll('.btn-hero-main, .quicklink-btn, .btn-ir-cronograma');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0) scale(1)';
+            });
+        });
+
+        // Efecto ripple en clics
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.btn-hero-main, .quicklink-btn, .btn-ir-cronograma')) {
+                const ripple = document.createElement('span');
+                const rect = e.target.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                e.target.style.position = 'relative';
+                e.target.style.overflow = 'hidden';
+                e.target.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            }
+        });
+    }
+    addMicroInteractions();
 
     // --- ANIMACIÓN DE TÍTULO (ESCRITURA) ---
     const heroTitle = document.querySelector('.hero-content h1');

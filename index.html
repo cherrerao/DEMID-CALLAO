@@ -175,5 +175,33 @@
         <!-- Capacidad Instalada -->
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+    <!-- Mensaje flotante de transferencias con video -->
+<div class="mensaje-flotante-transferencia">
+    <span class="mensaje-icono">🔔</span>
+    <span class="mensaje-texto">
+        <strong>¡Importante!</strong> No olividar la forma correcta de registrar las Notas de Transferencia.<br>
+        <ul class="mensaje-lista">
+            <li><span class="mensaje-bullet">➡️</span> <b>Ingreso:</b> Selecciona el concepto <span class="mensaje-destacado">"Distribución"</span>.</li>
+            <li><span class="mensaje-bullet">📝</span> <b>Número de GR:</b> Usa tu correlativo habitual.</li>
+            <li><span class="mensaje-bullet">⬅️</span> <b>Salida:</b> Selecciona el concepto <span class="mensaje-destacado">"Devolución por sobrestock"</span>.</li>
+        </ul>
+      <!---  <button class="mensaje-video-btn" onclick="mostrarVideoTransferencia()">Ver video ejemplo</button>-->
+    </span>
+    <span class="mensaje-cerrar" onclick="this.parentElement.style.display='none';" title="Cerrar">✖</span>
+</div>
+
+<!-- Modal para el video -->
+<!--<div id="modal-video-transferencia" class="modal-video-transferencia" style="display:none;">
+    <div class="modal-video-content">
+        <span class="modal-video-cerrar" onclick="document.getElementById('modal-video-transferencia').style.display='none'">✖</span>
+        <h3>Ejemplo: Transferencia entre Centros</h3>
+        <video controls width="100%" poster="IMAGENES/video_poster.png">
+            <source src="IMAGENES/Video ejemplo Transferencia entre Centros.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+    </div>
+</div>
 </body>
-</html>
+</html>-->
+

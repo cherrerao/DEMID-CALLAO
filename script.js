@@ -348,3 +348,14 @@ function filtrarTabla() {
     }
 }
 
+// Mostrar video de transferencia
+function mostrarVideoTransferencia() {
+    document.getElementById('modal-video-transferencia').style.display = 'flex';
+}
+
+// Ocultar barra flotante después de 12 segundos
+/*setTimeout(function() {
+    const barra = document.querySelector('.mensaje-flotante-transferencia');
+    if (barra) barra.classList.add('oculto');
+}, 12000);*/
+

@@ -176,32 +176,50 @@
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
-    <!-- Mensaje flotante de transferencias con video -->
-<div class="mensaje-flotante-transferencia">
-    <span class="mensaje-icono">🔔</span>
-    <span class="mensaje-texto">
-        <strong>¡Importante!</strong> No olividar la forma correcta de registrar las Notas de Transferencia.<br>
-        <ul class="mensaje-lista">
-            <li><span class="mensaje-bullet">➡️</span> <b>Ingreso:</b> Selecciona el concepto <span class="mensaje-destacado">"Distribución"</span>.</li>
-            <li><span class="mensaje-bullet">📝</span> <b>Número de GR:</b> Usa tu correlativo habitual.</li>
-            <li><span class="mensaje-bullet">⬅️</span> <b>Salida:</b> Selecciona el concepto <span class="mensaje-destacado">"Devolución por sobrestock"</span>.</li>
-        </ul>
-      <!---  <button class="mensaje-video-btn" onclick="mostrarVideoTransferencia()">Ver video ejemplo</button>-->
-    </span>
-    <span class="mensaje-cerrar" onclick="this.parentElement.style.display='none';" title="Cerrar">✖</span>
+    <!-- Aviso discreto "¡Nuevo!" en la esquina superior izquierda -->
+<div id="aviso-nuevo" class="aviso-nuevo" title="Novedades recientes">
+    <span class="aviso-icono">🆕</span> <span class="aviso-texto">¡Nuevo!</span>
 </div>
 
-<!-- Modal para el video -->
-<!--<div id="modal-video-transferencia" class="modal-video-transferencia" style="display:none;">
+<!-- Mensaje flotante: Transferencia Correcta (SIEMPRE visible) -->
+<div class="avisos-flotantes-row">
+    <div class="mensaje-flotante-transferencia" id="nota-transferencia">
+        <span class="mensaje-icono">✅</span>
+        <span class="mensaje-texto">
+            <strong>Transferencia Correcta</strong><br>
+            Así se debe registrar una transferencia entre centros.<br>
+            <ul class="mensaje-lista">
+                <li><span class="mensaje-bullet">➡️</span> <b>Ingreso:</b> Selecciona <span class="mensaje-destacado">"Distribución"</span>.</li>
+                <li><span class="mensaje-bullet">📝</span> <b>Número de GR:</b> Usa tu correlativo habitual.</li>
+                <li><span class="mensaje-bullet">⬅️</span> <b>Salida:</b> Selecciona <span class="mensaje-destacado">"Devolución por sobrestock"</span>.</li>
+            </ul>
+            <button class="mensaje-video-btn" onclick="mostrarVideoTransferencia('transferencia_centros.mp4')">Ver video ejemplo</button>
+        </span>
+        <span class="mensaje-cerrar" onclick="document.getElementById('nota-transferencia').style.display='none';">✖</span>
+    </div>
+
+    <!-- Mensaje flotante: Cierre y envío de ICI (SIEMPRE visible) -->
+    <div class="mensaje-flotante-transferencia" id="nota-ici" style="top: 110px;">
+        <span class="mensaje-icono">📦</span>
+        <span class="mensaje-texto">
+            <strong>Cierre y Envío de ICI Mensual</strong><br>
+            Video para que los centros realicen el cierre y envío correcto de la información mensual del ICI.<br>
+            <button class="mensaje-video-btn" onclick="mostrarVideoTransferencia('Cierre_y_envio_virtual_ICI.mp4')">Ver video de cierre ICI</button>
+        </span>
+        <span class="mensaje-cerrar" onclick="document.getElementById('nota-ici').style.display='none';">✖</span>
+    </div>
+</div>
+
+<div id="modal-video-transferencia" class="modal-video-transferencia" style="display:none;">
     <div class="modal-video-content">
         <span class="modal-video-cerrar" onclick="document.getElementById('modal-video-transferencia').style.display='none'">✖</span>
-        <h3>Ejemplo: Transferencia entre Centros</h3>
-        <video controls width="100%" poster="IMAGENES/video_poster.png">
-            <source src="IMAGENES/Video ejemplo Transferencia entre Centros.mp4" type="video/mp4">
+        <h3 id="modal-video-title"></h3>
+        <video id="modal-video" controls width="100%">
+            <source id="modal-video-source" src="" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
     </div>
 </div>
 </body>
-</html>-->
+</html>
 

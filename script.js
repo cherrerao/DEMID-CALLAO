@@ -349,13 +349,42 @@ function filtrarTabla() {
 }
 
 // Mostrar video de transferencia
-function mostrarVideoTransferencia() {
-    document.getElementById('modal-video-transferencia').style.display = 'flex';
+function mostrarVideoTransferencia(videoFile) {
+    const modal = document.getElementById('modal-video-transferencia');
+    const video = document.getElementById('modal-video');
+    const source = document.getElementById('modal-video-source');
+    const title = document.getElementById('modal-video-title');
+
+    // Título dinámico según el video
+    if (videoFile === 'transferencia_centros.mp4') {
+        title.textContent = 'Ejemplo: Transferencia entre Centros';
+    } else {
+        title.textContent = 'Ejemplo: Cierre y Envío de ICI Mensual';
+    }
+
+    source.src = 'IMAGENES/' + videoFile;
+    video.load();
+    modal.style.display = 'flex';
 }
 
 // Ocultar barra flotante después de 12 segundos
-/*setTimeout(function() {
+setTimeout(function() {
     const barra = document.querySelector('.mensaje-flotante-transferencia');
     if (barra) barra.classList.add('oculto');
-}, 12000);*/
+}, 12000);
+
+// Mostrar notas flotantes
+function mostrarNotasFlotantes() {
+    document.getElementById('nota-transferencia').style.display = 'flex';
+    document.getElementById('nota-ici').style.display = 'flex';
+    document.getElementById('aviso-nuevo').style.display = 'none';
+}
+
+// Oculta los avisos flotantes después de 20 segundos
+setTimeout(function() {
+    const aviso1 = document.getElementById('nota-transferencia');
+    const aviso2 = document.getElementById('nota-ici');
+    if (aviso1) aviso1.style.display = 'none';
+    if (aviso2) aviso2.style.display = 'none';
+}, 20000); // 20000 ms = 20 segundos
 

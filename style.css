@@ -1699,6 +1699,99 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Notas flotantes en esquina superior izquierda */
+.mensaje-flotante-izquierda {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    right: auto;
+    transform: none;
+    max-width: 410px;
+    min-width: 260px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 0 0 4px rgba(0,180,216,0.18);
+    border-radius: 18px;
+    border: 2px solid #fff;
+    background: linear-gradient(90deg, rgba(25,118,210,0.85) 0%, rgba(0,180,216,0.85) 100%);
+    backdrop-filter: blur(10px);
+    opacity: 0.97;
+    z-index: 4000;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    animation: slideDown 0.8s cubic-bezier(.23,1.01,.32,1) 0s 1;
+    transition: top 0.4s, opacity 0.4s;
+    padding: 18px 28px 18px 18px;
+    font-size: 1.08em;
+}
+
+/* Primer mensaje debajo del header */
+#nota-transferencia {
+    top: 90px; /* Ajusta según el alto de tu header */
+}
+
+/* Segundo mensaje más abajo y con margen extra */
+#nota-ici {
+    top: 230px; /* Más separación respecto al primero */
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+    .mensaje-flotante-izquierda {
+        font-size: 0.98em;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 8px 12px 8px;
+        max-width: 98vw;
+        left: 1vw;
+        border-radius: 12px;
+    }
+    #nota-transferencia {
+        top: 70px;
+    }
+    #nota-ici {
+        top: 180px;
+    }
+}
+
+/* Modal video */
+.modal-video-transferencia {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 5001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: modalFadeIn 0.5s;
+}
+.modal-video-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 24px 18px 18px 18px;
+    max-width: 700px;
+    width: 95vw;
+    text-align: center;
+    position: relative;
+}
+.modal-video-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.5em;
+    color: #1976d2;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.modal-video-cerrar:hover {
+    opacity: 1;
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 .modal-ici {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -2012,9 +2105,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-ir-cronograma:hover {
-  transform: translateY(-3px) scale(1.08);
-  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6), 0 0 0 8px rgba(255, 255, 255, 0.4);
-  animation-play-state: paused;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6), 0 0 0 8px rgba(255, 255, 255, 0.4);
+    animation-play-state: paused;
 }
 .btn-fecha-cronograma {
   background: linear-gradient(45deg, #ff6b6b, #ff9800, #ff5722);
@@ -2114,7 +2207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-flecha-cronograma:hover {
-  transform: scale(1.15) rotate(10deg);
+           transform: scale(1.15) rotate(10deg);
   box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6), 0 0 0 6px rgba(255, 255, 255, 0.3);
   animation-play-state: paused;
 }
@@ -2449,9 +2542,6 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     gap: 18px;
     animation: slideDown 0.8s cubic-bezier(.23,1.01,.32,1) 0s 1;
-    transition: top 0.4s, opacity 0.4s;
-    backdrop-filter: blur(10px);
-    opacity: 0.97;
 }
 .mensaje-flotante-transferencia.oculto {
     opacity: 0;
@@ -2535,23 +2625,537 @@ h1, h2, h3, h4, h5, h6 {
     background: #00b4d8;
     color: #fff;
 }
-@media (max-width: 600px) {
-    .mensaje-flotante-transferencia {
+
+/* Mensaje flotante en esquina superior derecha */
+.mensaje-flotante-derecha {
+    top: 18px !important;
+    right: 18px !important;
+    left: auto !important;
+    transform: none !important;
+    max-width: 410px;
+    min-width: 280px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 0 0 4px rgba(0,180,216,0.18);
+    border-radius: 18px;
+    border: 2px solid #fff;
+    background: linear-gradient(90deg, rgba(25,118,210,0.85) 0%, rgba(0,180,216,0.85) 100%);
+    backdrop-filter: blur(10px);
+    opacity: 0.97;
+    z-index: 4000;
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    animation: slideDown 0.8s cubic-bezier(.23,1.01,.32,1) 0s 1;
+    transition: top 0.4s, opacity 0.4s;
+}
+
+/* Modal video */
+.modal-video-transferencia {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 5001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: modalFadeIn 0.5s;
+}
+.modal-video-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 24px 18px 18px 18px;
+    max-width: 700px;
+    width: 95vw;
+    text-align: center;
+    position: relative;
+}
+.modal-video-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.5em;
+    color: #1976d2;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.modal-video-cerrar:hover {
+    opacity: 1;
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-ici {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    animation: modalFadeIn 0.7s;
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-ici-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 36px 28px 28px 28px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalPopIn 0.7s cubic-bezier(.23,1.01,.32,1);
+}
+@keyframes modalPopIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.modal-ici-icono {
+    font-size: 3em;
+    margin-bottom: 12px;
+    display: block;
+}
+.modal-ici-texto {
+    color: #ff5722;
+    font-size: 1.15em;
+    margin-bottom: 22px;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.5;
+}
+.modal-ici-fecha {
+    background: #ff9800;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 0 4px;
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+.modal-ici-cerrar {
+    background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, transform 0.1s;
+}
+.modal-ici-cerrar:hover {
+    background: linear-gradient(90deg, #ff5722 0%, #ff9800 100%);
+    transform: scale(1.05);
+}
+@media (max-width: 500px) {
+    .modal-ici-content {
+        padding: 22px 8px 18px 8px;
         font-size: 0.98em;
+    }
+    .modal-ici-icono {
+        font-size: 2em;
+    }
+}
+
+/* Estilo para el cronograma con texto - VERSIÓN MEJORADA Y LLAMATIVA */
+.cronograma-section {
+  text-align: center;
+  margin: 40px 0 30px 0;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #0a6cff 0%, #00b4d8 25%, #2193b0 50%, #6dd5ed 75%, #0a6cff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(10, 108, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cronograma-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  animation: sparkle 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.cronograma-text-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cronograma-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #fff, #e6f3ff, #fff, #cce7ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(10, 108, 255, 0.3);
+  animation: titleShine 3s ease-in-out infinite;
+  letter-spacing: 2px;
+}
+
+@keyframes titleShine {
+  0%, 100% { 
+    background-position: 0% 50%;
+  }
+  50% { 
+    background-position: 100% 50%;
+  }
+}
+
+.cronograma-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.2),
+    0 0 0 1px rgba(255,255,255,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+  border: 3px solid rgba(255,255,255,0.4);
+  position: relative;
+  overflow: hidden;
+  animation: messageFloat 4s ease-in-out infinite;
+}
+
+@keyframes messageFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-5px);
+  }
+}
+
+.cronograma-message::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.cronograma-status {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #0a6cff, #00b4d8, #2193b0, #6dd5ed);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.4;
+  animation: gradientShift 4s ease infinite;
+  text-shadow: 0 2px 4px rgba(10, 108, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+.cronograma-icon {
+  font-size: 4rem;
+  animation: iconBounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(10, 108, 255, 0.3));
+  position: relative;
+  color: #0a6cff;
+}
+
+@keyframes iconBounce {
+  0%, 20%, 50%, 80%, 100% { 
+    transform: translateY(0) scale(1);
+  }
+  10% { 
+    transform: translateY(-10px) scale(1.1);
+  }
+  30% { 
+    transform: translateY(-15px) scale(1.15);
+  }
+  40% { 
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+.cronograma-icon::before {
+  content: '⭐';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  animation: sparkleRotate 2s linear infinite;
+  color: #ffd700;
+}
+
+@keyframes sparkleRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Efectos de partículas flotantes */
+.cronograma-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.5), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: particlesFloat 15s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes particlesFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-200px); }
+}
+
+.btn-ir-cronograma {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite, pulse-glow 2s ease infinite;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+}
+
+.btn-ir-cronograma::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6), 0 0 0 6px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.btn-ir-cronograma:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6), 0 0 0 8px rgba(255, 255, 255, 0.4);
+    animation-play-state: paused;
+}
+.btn-fecha-cronograma {
+  background: linear-gradient(45deg, #ff6b6b, #ff9800, #ff5722);
+  background-size: 300% 300%;
+  animation: gradientShift 2s ease infinite, dateJump 1.8s ease infinite;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 12px 32px;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-right: 18px;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+  outline: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.btn-fecha-cronograma::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shine 2.5s infinite;
+}
+
+@keyframes dateJump {
+  0%, 20%, 50%, 80%, 100% { 
+    transform: translateY(0) scale(1);
+  }
+  10% { 
+    transform: translateY(-8px) scale(1.05);
+  }
+  30% { 
+    transform: translateY(-12px) scale(1.1);
+  }
+  40% { 
+    transform: translateY(-6px) scale(1.03);
+  }
+}
+
+.btn-fecha-cronograma:hover {
+  background: linear-gradient(45deg, #ff5722, #ff6b6b, #ff9800);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6), 0 0 0 5px rgba(255, 255, 255, 0.3);
+  animation-play-state: paused;
+}
+
+.btn-flecha-cronograma {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+  background-size: 300% 300%;
+  animation: gradientShift 2s ease infinite, bounce 1.5s ease infinite;
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: 700;
+  padding: 15px 20px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.2);
+  border: 3px solid #fff;
+  outline: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-flecha-cronograma::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.btn-flecha-cronograma:hover {
+   transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6), 0 0 0 6px rgba(255, 255, 255, 0.3);
+  animation-play-state: paused;
+}
+
+.avisos-flotantes-row {
+    position: fixed;
+    top: 90px; /* Ajusta según el alto de tu header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 860px; /* Ajusta según el tamaño de tus avisos */
+    max-width: 98vw;
+    display: flex;
+    gap: 32px;
+    z-index: 4000;
+    align-items: flex-start;
+}
+
+.avisos-flotantes-row .mensaje-flotante-transferencia {
+    position: static;
+    max-width: 410px;
+    min-width: 260px;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 0 0 4px rgba(0,180,216,0.18);
+    border-radius: 18px;
+    border: 2px solid #fff;
+    background: linear-gradient(90deg, rgba(25,118,210,0.85) 0%, rgba(0,180,216,0.85) 100%);
+    backdrop-filter: blur(10px);
+    opacity: 0.97;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px 28px 18px 18px;
+    font-size: 1.08em;
+    animation: slideDown 0.8s cubic-bezier(.23,1.01,.32,1) 0s 1;
+    transition: top 0.4s, opacity 0.4s;
+}
+
+@media (max-width: 900px) {
+    .avisos-flotantes-row {
         flex-direction: column;
-        gap: 8px;
-        padding: 12px 8px 12px 8px;
+        top: 70px;
+        left: 8px;
+        min-width: unset;
+        width: 98vw;
+        gap: 18px;
+    }
+    .avisos-flotantes-row .mensaje-flotante-transferencia {
         max-width: 98vw;
-        left: 1vw;
-        transform: none;
+        font-size: 0.98em;
+        padding: 12px 8px 12px 8px;
         border-radius: 12px;
-    }
-    .mensaje-flotante-transferencia .mensaje-texto {
-        text-align: center;
-    }
-    .mensaje-flotante-transferencia .mensaje-cerrar {
-        margin-left: 0;
-        margin-top: 8px;
     }
 }
 

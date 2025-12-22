@@ -388,3 +388,55 @@ setTimeout(function() {
     if (aviso2) aviso2.style.display = 'none';
 }, 20000); // 20000 ms = 20 segundos
 
+
+/* --- Script navideño: generar copos de nieve decorativos --- */
+(function() {
+    function createSnowflakes(count) {
+        const container = document.getElementById('snow-container') || createSnowContainer();
+        for (let i = 0; i < count; i++) {
+            const flake = document.createElement('div');
+            flake.className = 'snowflake';
+            flake.textContent = '❄';
+
+            const size = Math.floor(Math.random() * 14) + 8; // 8px - 22px
+            const left = Math.random() * 100; // vw
+            const duration = (Math.random() * 10) + 8; // 8s - 18s
+            const delay = -(Math.random() * 10); // negative so some already falling on load
+            const opacity = 0.6 + Math.random() * 0.4;
+
+            flake.style.fontSize = size + 'px';
+            flake.style.left = left + 'vw';
+            flake.style.opacity = opacity;
+            flake.style.animationName = 'snow-fall';
+            flake.style.animationDuration = duration + 's';
+            flake.style.animationDelay = delay + 's';
+            flake.style.willChange = 'transform, top, opacity';
+
+            // small variation classes
+            if (duration > 13) flake.classList.add('slow'); else flake.classList.add('fast');
+
+            container.appendChild(flake);
+        }
+    }
+
+    function createSnowContainer() {
+        const c = document.createElement('div');
+        c.id = 'snow-container';
+        c.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(c);
+        return c;
+    }
+
+    function initChristmas() {
+        // menos copos en móviles
+        const count = window.matchMedia('(max-width: 480px)').matches ? 30 : 70;
+        createSnowflakes(count);
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(initChristmas, 300);
+    } else {
+        window.addEventListener('DOMContentLoaded', function() { setTimeout(initChristmas, 300); });
+    }
+})();
+

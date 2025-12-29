@@ -427,6 +427,8 @@ setTimeout(function() {
         return c;
     }
 
+    // Efectos navideños desactivados - Solo Año Nuevo 2026
+    /*
     function initChristmas() {
         // menos copos en móviles
         const count = window.matchMedia('(max-width: 480px)').matches ? 30 : 70;
@@ -438,5 +440,167 @@ setTimeout(function() {
     } else {
         window.addEventListener('DOMContentLoaded', function() { setTimeout(initChristmas, 300); });
     }
+    */
 })();
+
+// ===== EFECTOS DE AÑO NUEVO 2026 - MEJORADOS =====
+
+// Función para crear confeti mejorado y abundante
+function createConfetti() {
+    const container = document.getElementById('confetti-container');
+    if (!container) return;
+    
+    const colors = ['#ffd700', '#ff1493', '#00d4ff', '#ff6b00', '#00ff00', '#ff69b4', '#87ceeb'];
+    
+    // Frecuencia elegante de confeti
+    setInterval(() => {
+        // Crear confeti llamativo
+        for (let i = 0; i < 3; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            const xPos = Math.random() * window.innerWidth;
+            confetti.style.left = xPos + 'px';
+            confetti.style.top = '-20px';
+            
+            const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.background = selectedColor;
+            confetti.style.boxShadow = `0 0 8px ${selectedColor}`;
+            confetti.style.opacity = '0.85';
+            
+            // Tamaño variado
+            const size = Math.random() * 12 + 6;
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            
+            // Rotación aleatoria
+            confetti.style.transform = `rotateZ(${Math.random() * 360}deg)`;
+            
+            // Velocidad variada
+            const duration = Math.random() * 1.2 + 3.5;
+            confetti.style.animation = `fall-confetti ${duration}s linear forwards`;
+            
+            container.appendChild(confetti);
+            
+            // Eliminar después de la animación
+            setTimeout(() => confetti.remove(), duration * 1000);
+        }
+    }, 150); // Más frecuente
+}
+
+// Función para crear fuegos artificiales mejorados
+function createFireworks() {
+    const container = document.getElementById('fireworks-container');
+    if (!container) return;
+    
+    const colors = ['#ff1493', '#ffd700', '#00d4ff', '#ff6b00', '#ff69b4', '#00ff00', '#ffffff'];
+    
+    // Fuegos artificiales elegantes
+    setInterval(() => {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * (window.innerHeight * 0.5) + 100;
+        
+        // Crear explosión atractiva
+        for (let i = 0; i < 35; i++) {
+            const spark = document.createElement('div');
+            spark.className = 'firework spark';
+            spark.style.left = x + 'px';
+            spark.style.top = y + 'px';
+            
+            const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+            spark.style.background = selectedColor;
+            spark.style.boxShadow = `0 0 10px ${selectedColor}`;
+            spark.style.opacity = '0.9';
+            
+            // Tamaño variado
+            const sparkSize = Math.random() * 5 + 2.5;
+            spark.style.width = sparkSize + 'px';
+            spark.style.height = sparkSize + 'px';
+            
+            // Calcular dirección de explosión
+            const angle = (i / 35) * Math.PI * 2;
+            const velocity = Math.random() * 90 + 100;
+            const tx = Math.cos(angle) * velocity;
+            const ty = Math.sin(angle) * velocity - 130 + Math.random() * 45;
+            
+            spark.style.setProperty('--tx', tx + 'px');
+            spark.style.setProperty('--ty', ty + 'px');
+            
+            container.appendChild(spark);
+            
+            setTimeout(() => spark.remove(), 1600);
+        }
+    }, 3000); // Más frecuente
+}
+
+// Función para crear luces parpadeantes mejoradas
+function createSparkles() {
+    const container = document.getElementById('floating-year-container');
+    if (!container) return;
+    
+    const colors = ['#ffd700', '#ff1493', '#00d4ff', '#ffffff', '#ff6b00', '#ff69b4'];
+    
+    setInterval(() => {
+        // Crear luces atractivas
+        for (let i = 0; i < 4; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'light-sparkle';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            
+            const sparkleSize = Math.random() * 8 + 4;
+            sparkle.style.width = sparkleSize + 'px';
+            sparkle.style.height = sparkleSize + 'px';
+            
+            const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+            sparkle.style.background = selectedColor;
+            sparkle.style.boxShadow = `0 0 ${Math.random() * 15 + 8}px ${selectedColor}`;
+            
+            container.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 1800);
+        }
+    }, 300); // Más frecuente
+}
+
+// Inicializar efectos de Año Nuevo cuando el documento esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    // Pequeño retraso para asegurar que todo esté cargado
+    setTimeout(() => {
+        createConfetti();
+        createFireworks();
+        createSparkles();
+        
+        // Efecto especial al cargar: lluvia inicial de confeti
+        const container = document.getElementById('confetti-container');
+        const colors = ['#ffd700', '#ff1493', '#00d4ff', '#ff6b00', '#00ff00', '#ff69b4', '#87ceeb'];
+        
+        for (let j = 0; j < 75; j++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                const xPos = Math.random() * window.innerWidth;
+                confetti.style.left = xPos + 'px';
+                confetti.style.top = '-20px';
+                
+                const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.background = selectedColor;
+                confetti.style.boxShadow = `0 0 10px ${selectedColor}`;
+                
+                const size = Math.random() * 15 + 8;
+                confetti.style.width = size + 'px';
+                confetti.style.height = size + 'px';
+                confetti.style.transform = `rotateZ(${Math.random() * 360}deg)`;
+                
+                const duration = Math.random() * 2 + 2.5;
+                confetti.style.animation = `fall-confetti ${duration}s linear forwards`;
+                
+                container.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), duration * 1000);
+            }, j * 15);
+        }
+    }, 300);
+});
 

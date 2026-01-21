@@ -3159,4 +3159,71 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Estilos para el aviso de Cronograma */
+.cronograma-message.aviso {
+  background: #ffffff;
+  border: none;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(255, 152, 0, 0.1);
+  animation: none;
+  padding: 2rem 2.5rem;
+  gap: 1.2rem;
+  border-left: 5px solid #ffc107;
+  border-radius: 8px;
+}
+
+.cronograma-message.aviso .cronograma-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.8rem 0;
+  background: linear-gradient(135deg, #ff8c00, #ffc107);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: none;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.cronograma-message.aviso .cronograma-status {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  animation: none;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 500;
+  color: #555555;
+}
+
+.cronograma-message.aviso .cronograma-status strong {
+  font-weight: 700;
+  color: #ff8c00;
+}
+
+.cronograma-message.aviso .cronograma-status br {
+  display: block;
+  margin: 0.7rem 0;
+}
+
+.cronograma-message.aviso .cronograma-icon {
+  font-size: 2.2rem;
+  animation: iconWarning 2s ease-in-out infinite;
+  filter: none;
+  color: #ffc107;
+  margin-top: 0.5rem;
+}
+
+@keyframes iconWarning {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+  }
+  50% { 
+    transform: scale(1.08) rotate(2deg);
+  }
+}
+
 
